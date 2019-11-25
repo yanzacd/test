@@ -14,9 +14,6 @@ gem 'puma', '~> 3.11'
 # Use for versioning apis (api_version in routes)
 gem 'versionist'
 
-# Paginate
-gem 'wor-paginate'
-
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'rack-cors'
 gem 'rspotify'

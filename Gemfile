@@ -26,6 +26,8 @@ gem 'active_model_serializers'
 
 gem 'rails-i18n'
 
+gem 'webpacker'
+
 group :development, :test do
   gem 'byebug', platforms: :mri
 

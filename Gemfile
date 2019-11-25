@@ -24,6 +24,9 @@ gem 'active_model_serializers'
 gem 'rails-i18n'
 
 gem 'webpacker'
+gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'spring'
+gem 'spring-watcher-listen', '~> 2.0.0'
 
 group :development, :test do
   gem 'byebug', platforms: :mri
@@ -43,12 +46,6 @@ group :development, :test do
   gem 'dotenv-rails'
 end
 
-group :development do
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
 group :test do
   gem 'database_cleaner'
   gem 'rails-controller-testing'
@@ -57,4 +54,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'timecop'
   gem 'webmock'
+end
+
+group :production do
+  gem 'rails_12factor'
 end

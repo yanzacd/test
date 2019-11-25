@@ -2,7 +2,7 @@ module Api
   module V1
     class GenresController < ApplicationController
       def random_song
-        render_paginated response, status: :ok
+        render json: response, status: :ok
       end
 
       private

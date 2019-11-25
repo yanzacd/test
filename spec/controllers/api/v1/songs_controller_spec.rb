@@ -60,7 +60,9 @@ describe Api::V1::SongsController do
 
       it 'responds with message error Artist not found with that ID' do
         http_request
-        expect(JSON.parse(response.body)['error']).to eq "Album not found with ID: #{id}"
+        expect(
+          JSON.parse(response.body)['data'][0]['error']
+        ).to eq "Album not found with ID: #{id}"
       end
     end
   end

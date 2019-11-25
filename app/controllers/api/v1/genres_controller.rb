@@ -2,29 +2,23 @@ module Api
   module V1
     class GenresController < ApplicationController
       def random_song
-        render json: response, status: :ok
+        random_song = find_song
+        if random_song.nil?
+          render json: Errors::NotFoundSong.new.execute(genre_name), status: :not_found
+        else
+          render json: Virtual::GenresSerializer.new.execute(random_song), status: :ok
+        end
       end
 
       private
 
-      def response
-        current_artist = Artist.all.each do |artist|
-          return artist if artist.genres.include?(genre_name)
-        end
-        song(current_artist)
-      end
-
-      def song(artist)
-        Song.find_by(spotify_id: artist.spotify_id)
+      def find_song
+        Songs::FindRandom.new.execute(genre_name)
       end
 
       def genre_name
         params.require(:genre_name)
       end
-
-      # def look_for_artist(genre_name)
-      #   ::LookForArtist.new.execute(genre_name)
-      # end
     end
   end
 end

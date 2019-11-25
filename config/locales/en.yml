@@ -4,4 +4,8 @@ en:
     not_found: 'Artist not found with ID: %{id}'
   album:
     not_found: 'Album not found with ID: %{id}'
+  song:
+    not_found: 'Song not found with genre: %{genre}'
+  index:
+    welcome: 'Welcome to Rails Bootstrap'
 

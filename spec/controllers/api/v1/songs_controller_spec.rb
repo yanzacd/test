@@ -26,12 +26,7 @@ describe Api::V1::SongsController do
 
       it 'responds with four total songs' do
         http_request
-        expect(JSON.parse(response.body)['page'].count).to eq 4
-      end
-
-      it 'responds with five total keys for the first song' do
-        http_request
-        expect(JSON.parse(response.body)['page'][0].count).to eq 5
+        expect(JSON.parse(response.body)['page'][0][1].count).to eq 4
       end
     end
 
@@ -50,12 +45,12 @@ describe Api::V1::SongsController do
 
       it 'responds with zero total songs' do
         http_request
-        expect(JSON.parse(response.body)['page'].count).to eq 0
+        expect(JSON.parse(response.body)['page'][0][1].count).to eq 0
       end
 
       it 'responds with []' do
         http_request
-        expect(JSON.parse(response.body)['page']).to eq []
+        expect(JSON.parse(response.body)['page'][0][1]).to eq []
       end
     end
 

@@ -20,12 +20,12 @@ describe Api::V1::ArtistsController do
 
       it 'responds with six total artist' do
         http_request
-        expect(JSON.parse(response.body)['page'].count).to eq 6
+        expect(JSON.parse(response.body)['page'][0][1].count).to eq 6
       end
 
       it 'responds with two total genres' do
         http_request
-        expect(JSON.parse(response.body)['page'][0]['genres'].count).to eq 2
+        expect(JSON.parse(response.body)['page'][0][1][0]['genres'].count).to eq 2
       end
     end
 
@@ -38,7 +38,12 @@ describe Api::V1::ArtistsController do
 
       it 'responds with zero total artist' do
         http_request
-        expect(JSON.parse(response.body)['page'].count).to eq 0
+        expect(JSON.parse(response.body)['page'][0][1].count).to eq 0
+      end
+
+      it 'responds with []' do
+        http_request
+        expect(JSON.parse(response.body)['page'][0][1]).to eq []
       end
     end
   end

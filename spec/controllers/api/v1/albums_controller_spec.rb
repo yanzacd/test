@@ -19,14 +19,9 @@ describe Api::V1::AlbumsController do
         expect(http_request).to have_http_status(:ok)
       end
 
-      it 'responds with paginated json' do
-        http_request
-        expect(JSON.parse(response.body)).to be_paginated
-      end
-
       it 'responds with four total albums' do
         http_request
-        expect(JSON.parse(response.body)['page'][0][1].count).to eq 4
+        expect(JSON.parse(response.body)['data'].count).to eq 4
       end
     end
 
@@ -45,12 +40,12 @@ describe Api::V1::AlbumsController do
 
       it 'responds with zero total albums' do
         http_request
-        expect(JSON.parse(response.body)['page'][0][1].count).to eq 0
+        expect(JSON.parse(response.body)['data'].count).to eq 0
       end
 
       it 'responds with []' do
         http_request
-        expect(JSON.parse(response.body)['page'][0][1]).to eq []
+        expect(JSON.parse(response.body)['data']).to eq []
       end
     end
 

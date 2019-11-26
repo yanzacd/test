@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'application#index'
+
   api_version(module: 'Api::V1', path: { value: 'api/v1' }) do
     resources :artists, only: [:index] do
       member do

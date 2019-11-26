@@ -5,7 +5,7 @@ module Api
         if album.nil?
           render json: Errors::NotFoundAlbum.new.execute(album_id), status: :not_found
         else
-          render_paginated Virtual::SongsSerializer.new.execute(album.songs), status: :ok
+          render json: Virtual::SongsSerializer.new.execute(album.songs), status: :ok
         end
       end
 

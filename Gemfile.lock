@@ -331,9 +331,6 @@ GEM
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
-    wor-paginate (0.1.8)
-      rails (>= 4.0)
-      railties (>= 4.1.0)
     yard (0.9.20)
 
 PLATFORMS
@@ -369,7 +366,6 @@ DEPENDENCIES
   versionist
   webmock
   webpacker
-  wor-paginate
 
 RUBY VERSION
    ruby 2.6.2p47

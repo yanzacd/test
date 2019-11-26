@@ -4,7 +4,6 @@ require 'rspec/rails'
 require 'webmock/rspec'
 require 'shoulda/matchers'
 require 'support/spec_helper'
-require 'wor/paginate/rspec'
 include ActionDispatch::TestProcess
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }

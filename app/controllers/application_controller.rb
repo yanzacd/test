@@ -1,3 +1,7 @@
 class ApplicationController < ActionController::API
-  include Wor::Paginate
+  include ActionController::Helpers
+
+  def index
+    render json: { message: 'Welcome to Rails Bootstrap' }
+  end
 end
